@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "serve:python": "python3 -m http.server 8080 --directory dist",
+    "serve:python": "python3 -m http.server 8888 --directory dist",
     "test": "node --test tests/game.test.js"
   }
 }

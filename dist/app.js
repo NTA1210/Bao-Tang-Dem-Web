@@ -1,7 +1,7 @@
 // Kiểm tra nếu chạy nhầm bằng Node.js trực tiếp thay vì trên trình duyệt
 if (typeof window === 'undefined') {
   console.error('❌ dist/app.js là mã nguồn chạy trên trình duyệt Web (Client-side), không chạy trực tiếp bằng Node.js.');
-  console.error('👉 Để chạy ứng dụng, hãy chạy lệnh: npm start (hoặc npm run dev) rồi mở trình duyệt tại http://localhost:8080');
+  console.error('👉 Để chạy ứng dụng, hãy chạy lệnh: npm start (hoặc npm run dev) rồi mở trình duyệt tại http://localhost:8888');
   process.exit(1);
 }
 
