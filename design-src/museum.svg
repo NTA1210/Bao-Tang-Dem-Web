@@ -1,0 +1,43 @@
+<svg id="museum" class="museum" viewBox="0 0 760 480" role="img" aria-label="Bảo tàng lúc hoàng hôn, tám ô cửa sẽ sáng theo điểm của bạn">
+            <defs>
+              <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#1A1613"/><stop offset=".55" stop-color="#35281A"/><stop offset="1" stop-color="#795A33"/></linearGradient>
+              <radialGradient id="sunset"><stop stop-color="#B7925B" stop-opacity=".4"/><stop offset="1" stop-color="#B7925B" stop-opacity="0"/></radialGradient>
+              <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#4F3921"/><stop offset="1" stop-color="#2A2117"/></linearGradient>
+              <linearGradient id="sidewall" x2="0" y2="1"><stop stop-color="#3E2E1C"/><stop offset="1" stop-color="#221B15"/></linearGradient>
+              <linearGradient id="glass" x2="0" y2="1"><stop stop-color="#201A15"/><stop offset="1" stop-color="#161311"/></linearGradient>
+              <linearGradient id="litglass" x2="0" y2="1"><stop stop-color="#F4E4C8"/><stop offset="1" stop-color="#CBA66A"/></linearGradient>
+              <linearGradient id="ground" x2="0" y2="1"><stop stop-color="#261E16"/><stop offset="1" stop-color="#1A1613"/></linearGradient>
+              <filter id="glow"><feGaussianBlur stdDeviation="4"/></filter>
+              <pattern id="stone" width="49" height="24" patternUnits="userSpaceOnUse"><path d="M0 0H49 M0 24H49 M0 0V24 M24 0V12 M49 12H0" stroke="#A5814E" opacity=".05"/></pattern>
+              <g id="window"><path d="M-19 0V-39a19 19 0 0 1 38 0V0Z" fill="url(#glass)"/><path d="M-22 2V-39a22 22 0 0 1 44 0V2" fill="none" stroke="#63492A" stroke-width="4"/><path d="M0-58V0 M-19-30H19 M-19-12H19" stroke="#543D23" stroke-width="2"/><path d="M-25 3H25" stroke="#6B4F2D" stroke-width="5"/></g>
+            </defs>
+            <rect width="760" height="480" fill="url(#sky)"/><ellipse cx="435" cy="245" rx="340" ry="225" fill="url(#sunset)"/>
+            <g fill="#CDA86E" opacity=".65"><circle cx="106" cy="62" r="1"/><circle cx="290" cy="52" r="1"/><circle cx="462" cy="81" r="1"/><circle cx="582" cy="48" r="1.1"/><circle cx="696" cy="120" r="1"/><circle cx="191" cy="114" r=".8"/><circle cx="380" cy="34" r=".8"/></g>
+            <path d="M641 63a22 22 0 0 1-23-29 21 21 0 1 0 23 29" fill="#CDA96F" opacity=".8"/>
+            <g stroke="#957242" stroke-width="2" opacity=".16"><path d="M48 132H208M472 132H571M280 94H356M635 172H720"/></g>
+            <path d="M0 323L42 307H104V300H142V324H197V311H263V326H484V313H554V298H609V322H663V306H724L760 325V410H0Z" fill="#271E16" opacity=".6"/>
+            <rect y="383" width="760" height="97" fill="url(#ground)"/>
+            <path d="M191 395L116 480M569 395L644 480M0 449H760M0 472H760" stroke="#4B3720" stroke-width="1" opacity=".3"/>
+            <ellipse cx="380" cy="400" rx="283" ry="21" fill="#171311" opacity=".55"/>
+            <path d="M121 230H639V388H121Z" fill="url(#sidewall)"/><path d="M115 227H645V241H115Z" fill="#543E24"/>
+            <path d="M139 248H621V384H139Z" fill="url(#stone)"/>
+            <path d="M251 198H509V388H251Z" fill="url(#wall)"/><path d="M251 198H509V388H251Z" fill="url(#stone)"/>
+            <path d="M241 195L380 121L519 195Z" fill="#553F24"/><path d="M258 185L380 137L502 185Z" fill="#36281A"/><path d="M271 180L380 145L489 180Z" fill="#44311E"/>
+            <path d="M236 195H524V207H236Z" fill="#785932"/><path d="M246 208H514V218H246Z" fill="#37291A"/>
+            <circle cx="380" cy="165" r="13" fill="#2C2218" stroke="#846237" stroke-width="2"/><path d="M380 155V165L387 169" stroke="#B08C56" stroke-width="2" fill="none"/>
+            <path d="M288 229H472" stroke="#614729"/><text x="380" y="245" text-anchor="middle" fill="#B18D56" font-family="Georgia,serif" font-size="10" letter-spacing="5">THE NIGHT MUSEUM</text>
+            <g class="museum-window" data-window="0" transform="translate(172 310)"><use href="#window"/></g>
+            <g class="museum-window" data-window="1" transform="translate(225 310)"><use href="#window"/></g>
+            <g class="museum-window" data-window="2" transform="translate(303 310)"><use href="#window"/></g>
+            <g class="museum-window" data-window="3" transform="translate(353 310)"><use href="#window"/></g>
+            <g class="museum-window" data-window="4" transform="translate(407 310)"><use href="#window"/></g>
+            <g class="museum-window" data-window="5" transform="translate(457 310)"><use href="#window"/></g>
+            <g class="museum-window" data-window="6" transform="translate(535 310)"><use href="#window"/></g>
+            <g class="museum-window" data-window="7" transform="translate(588 310)"><use href="#window"/></g>
+            <g fill="#44311E"><path d="M149 328H240V334H149ZM521 328H610V334H521Z"/><path d="M268 322H492V330H268Z"/></g>
+            <g fill="#755731"><path d="M270 269H279V386H270ZM481 269H490V386H481Z"/><path d="M268 265H282V273H268ZM478 265H492V273H478Z"/></g>
+            <path id="museum-door" d="M362 383V346a18 18 0 0 1 36 0V383Z" fill="url(#glass)" stroke="#725530" stroke-width="3"/><path d="M380 329V382" stroke="#6C502D" stroke-width="2"/>
+            <path d="M292 383H468V390H292ZM280 391H480V398H280ZM268 399H492V406H268Z" fill="#5F4628"/><path d="M264 407H496" stroke="#977443" opacity=".4"/>
+            <g fill="#1E1814"><path d="M0 393V270Q10 230 33 265Q51 230 60 275Q88 279 72 323Q98 339 70 371V398ZM760 393V270Q750 230 727 265Q709 230 700 275Q672 279 688 323Q662 339 690 371V398Z"/><path d="M53 320H58V409H53ZM702 320H707V409H702Z"/></g>
+            <g stroke="#6C502D" stroke-width="2"><path d="M105 317V414M655 317V414"/></g><g fill="#B6915A"><circle cx="105" cy="315" r="4"/><circle cx="655" cy="315" r="4"/></g><g fill="#B6915A" opacity=".3" filter="url(#glow)"><circle cx="105" cy="315" r="10"/><circle cx="655" cy="315" r="10"/></g>
+          </svg>

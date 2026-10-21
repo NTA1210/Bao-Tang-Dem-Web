@@ -1,0 +1,12 @@
+{
+  "name": "toi-gio-len-den",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve:python": "python3 -m http.server 8080 --directory dist",
+    "test": "node --test tests/game.test.js"
+  }
+}

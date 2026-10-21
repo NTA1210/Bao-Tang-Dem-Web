@@ -1,0 +1,11 @@
+[functions.start-attempt]
+verify_jwt = false
+[functions.stop-attempt]
+verify_jwt = false
+[functions.player-state]
+verify_jwt = false
+[functions.save-profile]
+verify_jwt = false
+[functions.admin]
+verify_jwt = false
+# Each function verifies the bearer token via auth.getUser() itself.

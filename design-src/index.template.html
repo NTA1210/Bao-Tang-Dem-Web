@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090909"><meta name="description" content="Mười giây chờ đợi. Một lần chạm đúng lúc. Mini game Tới Giờ Lên Đèn thuộc sự kiện thí điểm BẢO TÀNG: ĐÊM.">
+  <title>Tới Giờ Lên Đèn — BẢO TÀNG: ĐÊM</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script defer src="vendor/gsap.min.js"></script><script defer src="vendor/ScrollTrigger.min.js"></script>
+  <script type="module" src="app.js"></script><script type="module" src="motion.js"></script>
+</head>
+<body class="is-intro">
+  <a class="skip-link" href="#main">Bỏ qua đến nội dung chính</a>
+
+  <!-- Intro điện ảnh: có thể bỏ qua -->
+  <div id="intro" class="intro-layer" role="dialog" aria-label="Mở đầu: Bảo tàng thức giấc">
+    <svg class="intro-art" viewBox="0 0 400 400" aria-hidden="true">
+      <defs><radialGradient id="introGlow"><stop stop-color="#CBA66A" stop-opacity=".55"/><stop offset="1" stop-color="#CBA66A" stop-opacity="0"/></radialGradient></defs>
+      <circle id="i-glow" cx="200" cy="200" r="150" fill="url(#introGlow)" opacity="0"/>
+      <circle id="i-dot" cx="200" cy="200" r="3.5" fill="#F4E4C8"/>
+      <path id="i-moon" d="M200 128A72 72 0 1 0 200 272A58 58 0 1 1 200 128Z" fill="#CBA66A"/>
+      <circle id="i-ring" cx="200" cy="200" r="104" fill="none" stroke="#8B683A" stroke-width="1.5"/>
+      <rect id="i-sq1" x="268" y="116" width="34" height="34" fill="#8B683A"/>
+      <path id="i-semi" d="M118 292H182A32 32 0 0 0 118 292Z" fill="#49351F" stroke="#8B683A" stroke-width="1.5"/>
+      <path id="i-star" d="M268 238L274 258L294 264L274 270L268 290L262 270L242 264L262 258Z" fill="#F4E4C8"/>
+      <rect id="i-sq2" x="104" y="124" width="22" height="22" fill="none" stroke="#CBA66A" stroke-width="1.5"/>
+    </svg>
+    <div class="intro-word" id="intro-word"><span>BẢO TÀNG<i>:</i> ĐÊM</span></div>
+    <button id="intro-skip" class="intro-skip" type="button">Bỏ qua <span aria-hidden="true">→</span></button>
+  </div>
+
+  <header class="header" id="header">
+    <a class="brand" href="#hero" aria-label="BẢO TÀNG: ĐÊM, về đầu trang"><img id="brand-logo" alt="" hidden><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 6A14 14 0 1 0 20 34A11 11 0 1 1 20 6Z" fill="#CBA66A"/><path d="M29 22L30.4 26.4L35 28L30.4 29.6L29 34L27.6 29.6L23 28L27.6 26.4Z" fill="#F4E4C8"/></svg></span><span class="brand-text">BẢO TÀNG<i>:</i> ĐÊM</span></a>
+    <nav aria-label="Điều hướng"><button class="nav" data-tab="play" type="button">Chơi</button><button class="nav" data-tab="ranking" type="button">Bảng xếp hạng</button><button class="nav" data-tab="rules" type="button">Thể lệ</button></nav>
+    <button id="account" class="account magnetic" type="button"><span class="account-icon" aria-hidden="true">◉</span><span id="account-label">Tham gia chơi</span></button>
+  </header>
+
+  <div id="experience" class="view active">
+  <main id="main">
+    <!-- 01 · OPENING / HERO -->
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <div class="hero-stage" id="hero-stage">
+        <img id="hero-photo" class="hero-photo" alt="Mặt tiền Bảo tàng Đà Nẵng" hidden>
+        <svg id="hero-art" class="hero-art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="hSky" x2="0" y2="1"><stop stop-color="#090909"/><stop offset=".62" stop-color="#14100d"/><stop offset="1" stop-color="#49351F"/></linearGradient>
+            <radialGradient id="hMoonGlow"><stop stop-color="#CBA66A" stop-opacity=".38"/><stop offset="1" stop-color="#CBA66A" stop-opacity="0"/></radialGradient>
+            <linearGradient id="hWall" x2="0" y2="1"><stop stop-color="#2a2018"/><stop offset="1" stop-color="#14100d"/></linearGradient>
+            <linearGradient id="hLit" x2="0" y2="1"><stop stop-color="#F4E4C8"/><stop offset="1" stop-color="#CBA66A"/></linearGradient>
+            <g id="hArch"><path d="M-26 0V-52A26 26 0 0 1 26-52V0Z"/></g>
+          </defs>
+          <rect width="1600" height="900" fill="url(#hSky)"/>
+          <g class="depth" data-depth="0.15"><circle cx="1180" cy="250" r="260" fill="url(#hMoonGlow)"/><path class="hero-moon" d="M1180 150A100 100 0 1 0 1180 350A80 80 0 1 1 1180 150Z" fill="#CBA66A"/></g>
+          <g class="depth" data-depth="0.1" fill="#F4E4C8"><circle cx="210" cy="120" r="1.6"/><circle cx="420" cy="210" r="1.2"/><circle cx="640" cy="90" r="1.8"/><circle cx="890" cy="160" r="1.3"/><circle cx="1010" cy="70" r="1.5"/><circle cx="1420" cy="120" r="1.4"/><circle cx="1510" cy="330" r="1.2"/><circle cx="130" cy="330" r="1.3"/><circle cx="760" cy="300" r="1"/></g>
+          <g class="depth" data-depth="0.25"><path d="M0 700L180 640H340V610H460V680H620V650H760V700Z M1020 700V640H1160V610H1280V660H1420L1600 620V700Z" fill="#1c1510"/></g>
+          <g class="depth" data-depth="0.4"><g transform="translate(-65 -231) scale(1.3)">
+            <rect x="0" y="760" width="1600" height="140" fill="#0d0b09"/>
+            <path d="M360 700H1240V770H360Z" fill="url(#hWall)"/><path d="M340 688H1260V704H340Z" fill="#49351F"/>
+            <path d="M520 500H1080V770H520Z" fill="url(#hWall)"/><path d="M500 498L800 380L1100 498Z" fill="#3a2b1d"/><path d="M540 488L800 400L1060 488Z" fill="#1d1712"/>
+            <circle cx="800" cy="452" r="22" fill="#14100d" stroke="#8B683A" stroke-width="3"/><path d="M800 436V452L810 458" stroke="#CBA66A" stroke-width="3" fill="none"/>
+            <path d="M510 498H1090V516H510Z" fill="#8B683A"/><path d="M530 518H1070V532H530Z" fill="#14100d"/>
+            <g fill="#8B683A"><rect x="556" y="536" width="16" height="234"/><rect x="1028" y="536" width="16" height="234"/></g>
+            <g class="hero-wins" fill="#0b0908" stroke="#6b5230" stroke-width="3">
+              <use class="hw" href="#hArch" x="410" y="740"/><use class="hw" href="#hArch" x="470" y="740"/>
+              <use class="hw" href="#hArch" x="640" y="740"/><use class="hw" href="#hArch" x="720" y="740"/><use class="hw" href="#hArch" x="880" y="740"/><use class="hw" href="#hArch" x="960" y="740"/>
+              <use class="hw" href="#hArch" x="1130" y="740"/><use class="hw" href="#hArch" x="1190" y="740"/>
+            </g>
+            <path d="M740 770V700A60 60 0 0 1 860 700V770Z" fill="#0b0908" stroke="#8B683A" stroke-width="3"/>
+            <path d="M610 790H990V802H610ZM590 804H1010V816H590Z" fill="#49351F"/>
+          </g></g>
+          <g class="depth" data-depth="0.9" opacity=".9"><g class="float-a"><path d="M160 760L168 786L194 794L168 802L160 828L152 802L126 794L152 786Z" fill="#CBA66A"/></g><g class="float-b"><circle cx="1450" cy="800" r="26" fill="none" stroke="#8B683A" stroke-width="3"/><path d="M1424 800H1476A26 26 0 0 1 1424 800Z" fill="#49351F" opacity=".7"/></g></g>
+        </svg>
+        <div class="hero-vignette"></div>
+        <div class="hero-sweep" aria-hidden="true"></div>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow hero-eyebrow"><span class="tiny-line"></span> MINI GAME · SỰ KIỆN THÍ ĐIỂM BẢO TÀNG: ĐÊM</p>
+        <h1 id="hero-title" class="display"><span class="line"><span>Tới giờ</span></span><span class="line"><span><em>lên đèn.</em></span></span></h1>
+        <p class="hero-lede">Mười giây chờ đợi. Một lần chạm đúng lúc.</p>
+        <div class="hero-cta"><button id="hero-cta" class="btn btn-gold magnetic" type="button"><span id="hero-cta-label">Tham gia chơi</span><span class="btn-arrow" aria-hidden="true">→</span></button><button class="btn btn-ghost magnetic" data-tab="rules" type="button">Xem thể lệ</button></div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span>CUỘN XUỐNG</span><i></i></div>
+    </section>
+
+    <!-- 02 · THE MOMENT / 17:59 -->
+    <section id="moment" class="moment" aria-labelledby="moment-title">
+      <div class="moment-pin">
+        <div class="moment-text">
+          <p class="eyebrow">17:59 · MỘT KHOẢNH KHẮC</p>
+          <h2 id="moment-title" class="display"><span class="line"><span>Mười giây</span></span><span class="line"><span>chờ đợi.</span></span><span class="line"><span><em>Một lần chạm</em></span></span><span class="line"><span><em>đúng lúc.</em></span></span></h2>
+        </div>
+        <div class="dial-wrap" id="dial-wrap">
+          <svg class="dial" id="dial" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+            <circle class="dial-halo" cx="300" cy="300" r="268" fill="none" stroke="#49351F" stroke-width="1"/>
+            <circle id="dial-ring" class="dial-ring" cx="300" cy="300" r="250" fill="none" stroke="#CBA66A" stroke-width="2.5" stroke-linecap="round" transform="rotate(-90 300 300)"/>
+            <g id="dial-ticks"></g>
+            <path id="dial-moon" d="M300 210A90 90 0 1 0 300 390A72 72 0 1 1 300 210Z" fill="#CBA66A" opacity=".9"/>
+            <text class="dial-time" x="300" y="470" text-anchor="middle">17:59:50 → 18:00:00</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 + 04 · THE GAME / LIGHT UP THE MUSEUM -->
+    <section id="game-section" class="game" aria-labelledby="game-title">
+      <div class="game-head"><p class="eyebrow">THẮP SÁNG BẢO TÀNG</p><h2 id="game-title" class="display"><span class="line"><span>Chạm đúng.</span></span><span class="line"><span><em>Bừng sáng.</em></span></span></h2></div>
+      <div class="game-layout">
+        <div class="museum-card" id="museum-card">
+          <div class="scene-heading"><span><span class="live-dot"></span> BẢO TÀNG SAU HOÀNG HÔN</span><span id="scene-time">17:59</span></div>
+          <div class="museum-stage">
+            <div class="bloom" id="bloom" aria-hidden="true"></div>
+            <svg class="geo-overlay" id="geo-overlay" viewBox="0 0 760 480" aria-hidden="true" focusable="false"><path d="M380 40A44 44 0 1 0 380 128A36 36 0 1 1 380 40Z" fill="none" stroke="#CBA66A" stroke-width="1.2"/><circle cx="380" cy="240" r="226" fill="none" stroke="#8B683A" stroke-width="1" stroke-dasharray="2 10"/><path d="M60 60L66 78L84 84L66 90L60 108L54 90L36 84L54 78Z" fill="#CBA66A"/><path d="M700 380L706 398L724 404L706 410L700 428L694 410L676 404L694 398Z" fill="#CBA66A"/></svg>
+            {{MUSEUM_SVG}}
+          </div>
+          <div class="scene-bottom"><div><span class="scene-caption" id="scene-caption">Cả bảo tàng đang chờ bạn.</span><span class="scene-subcaption">Một chạm, thắp lên một buổi tối.</span></div><div class="scene-tools"><button class="icon-button" id="fx-skip" type="button" hidden aria-label="Bỏ qua hiệu ứng">Bỏ qua</button><button class="icon-button" id="sound" type="button" aria-label="Bật âm thanh" aria-pressed="false" title="Bật âm thanh">♫<span class="sound-slash"></span></button></div></div>
+          <div class="window-counter"><span id="window-dots" aria-label="0 trên 8 ô cửa sáng"></span><span><b id="lit-count">0</b> / 8 ô cửa sáng</span></div>
+        </div>
+        <aside class="timer-card">
+          <div class="card-top"><span class="eyebrow">KHOẢNH KHẮC CỦA BẠN</span><span class="demo-badge" id="mode-badge">CHƠI THỬ</span></div>
+          <p class="timer-desc">Dừng đồng hồ càng sát <strong>18:00:00</strong>, càng nhiều ô cửa được thắp sáng.</p>
+          <div class="clock-area">
+            <div class="target"><span>GIỜ LÊN ĐÈN</span><b>18:00:00.000</b></div>
+            <div class="clock-face"><div class="rings" aria-hidden="true"><i></i><i></i><i></i></div><div class="clock" aria-label="Đồng hồ trò chơi" role="timer"><span id="clock-main">17:59:50</span><span class="milliseconds" id="clock-ms">.000</span></div></div>
+            <div class="progress-track"><span id="progress"></span><i></i><b id="progress-ping" aria-hidden="true"></b></div>
+            <div class="clock-labels"><span>17:59:50</span><span>18:00:00</span></div>
+          </div>
+          <div id="result" class="result" aria-live="polite" hidden><div><span id="result-title">Khoảnh khắc của bạn</span><strong><span id="result-score">0</span> <small>điểm</small></strong></div><div class="result-offset" id="result-offset"></div></div>
+          <button id="play-button" class="btn btn-gold btn-big magnetic" type="button"><span id="play-button-label">Bắt đầu chơi thử</span><span id="play-button-icon" class="btn-arrow">→</span></button>
+          <p class="play-hint" id="play-hint">Bạn có 10 giây. Hãy tin vào cảm giác của mình.</p>
+          <div class="attempts"><span id="player-name">Khách chơi thử</span><div id="attempt-circles"><i class="available">1</i><i class="available">2</i><i class="available">3</i></div><span id="remaining">Còn 3/3 lượt</span></div>
+          <p class="demo-note" id="demo-note">Bản chơi thử · Kết quả lưu trên trình duyệt này.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Bước đăng nhập (chỉ hiện khi chưa đăng nhập ở bản chính thức) -->
+    <section id="gate-section" class="gate" hidden aria-labelledby="gate-title">
+      <div class="gate-card">
+        <span class="eyebrow">BƯỚC 1 / 2 · ĐĂNG NHẬP</span>
+        <h2 id="gate-title" class="display-sm">Vào sảnh chờ,<br><em>thắp đèn cùng bạn.</em></h2>
+        <p class="gate-lead">Đăng nhập bằng Google để nhận 3 lượt chơi và ghi tên lên bảng xếp hạng. Mỗi tài khoản chỉ có một bộ 3 lượt.</p>
+        <label class="consent"><input id="landing-consent" type="checkbox"><span>Tôi đồng ý dùng tên, email và kết quả cho trò chơi, liên hệ trao giải; dữ liệu được xóa sau chiến dịch. <button type="button" class="inline-link" id="landing-privacy">Quyền riêng tư</button></span></label>
+        <button class="btn btn-gold btn-big magnetic google-button" id="landing-google" type="button" disabled><span class="google-g">G</span> Đăng nhập bằng Google</button>
+        <p class="dialog-note">Chỉ nhận tài khoản Google đã xác minh email. Không yêu cầu quyền đọc Gmail hoặc Drive.</p>
+      </div>
+    </section>
+    <section id="profile-section" class="gate" hidden aria-labelledby="profile-title">
+      <form id="profile-form" class="gate-card" autocomplete="off">
+        <span class="eyebrow">BƯỚC 2 / 2 · THÔNG TIN NGƯỜI CHƠI</span>
+        <h2 id="profile-title" class="display-sm">Cho bảo tàng biết<br><em>bạn là ai.</em></h2>
+        <p class="gate-lead">Tên của bạn sẽ hiện ở dạng rút gọn trên bảng xếp hạng. Gmail dùng để liên hệ trao giải và không hiển thị công khai.</p>
+        <label class="field"><span>Họ và tên</span><input id="profile-name" type="text" required minlength="2" maxlength="60" placeholder="Ví dụ: Nguyễn Văn An" autocomplete="name"></label>
+        <label class="field"><span>Gmail</span><input id="profile-email" type="email" readonly aria-describedby="profile-email-hint"></label>
+        <small id="profile-email-hint" class="field-hint">Lấy từ tài khoản Google bạn vừa đăng nhập, không chỉnh sửa được.</small>
+        <button class="btn btn-gold btn-big magnetic" id="profile-submit" type="submit"><span id="profile-submit-label">Vào chơi</span><span class="btn-arrow" aria-hidden="true">→</span></button>
+        <button class="text-button" id="profile-logout" type="button">Dùng tài khoản Google khác</button>
+      </form>
+    </section>
+
+    <!-- 05 · HOW TO PLAY -->
+    <section id="how" class="how" aria-labelledby="how-title">
+      <div class="how-head"><p class="eyebrow">RẤT ĐƠN GIẢN</p><h2 id="how-title" class="display"><span class="line"><span>Đúng một</span></span><span class="line"><span><em>khoảnh khắc.</em></span></span></h2></div>
+      <ol class="how-grid">
+        <li class="how-step"><span class="how-num">01</span><svg class="how-art" viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="62" fill="none" stroke="#8B683A" stroke-width="1.5"/><g stroke="#CBA66A" stroke-width="2"><path d="M80 18V32M80 128V142M18 80H32M128 80H142"/></g><path d="M80 80V44" stroke="#F4E4C8" stroke-width="3" stroke-linecap="round"/><path d="M80 80L104 94" stroke="#CBA66A" stroke-width="3" stroke-linecap="round"/><circle cx="80" cy="80" r="5" fill="#CBA66A"/></svg><h3>Bắt đầu đồng hồ</h3><p>Đồng hồ đếm từ 17:59:50.</p></li>
+        <li class="how-step"><span class="how-num">02</span><svg class="how-art" viewBox="0 0 160 160" aria-hidden="true"><rect x="38" y="38" width="84" height="84" fill="none" stroke="#8B683A" stroke-width="1.5"/><path d="M38 122A42 42 0 0 1 122 122Z" fill="#49351F" stroke="#CBA66A" stroke-width="1.5"/><circle cx="80" cy="64" r="14" fill="#CBA66A"/><path d="M80 20L84 34L98 38L84 42L80 56L76 42L62 38L76 34Z" fill="#F4E4C8"/></svg><h3>Chạm để dừng</h3><p>Nhắm đúng 18:00:00.</p></li>
+        <li class="how-step"><span class="how-num">03</span><svg class="how-art" viewBox="0 0 160 160" aria-hidden="true"><g fill="#49351F" stroke="#8B683A" stroke-width="1.5"><path d="M34 118V78A18 18 0 0 1 70 78V118Z"/><path d="M90 118V78A18 18 0 0 1 126 78V118Z"/></g><g fill="#CBA66A"><path d="M40 112V78A12 12 0 0 1 64 78V112Z"/></g><path d="M20 126H140" stroke="#CBA66A" stroke-width="2"/><path d="M110 28L113 38L123 41L113 44L110 54L107 44L97 41L107 38Z" fill="#F4E4C8"/></svg><h3>Thắp sáng bảo tàng</h3><p>Càng sát giờ, càng rực rỡ.</p></li>
+      </ol>
+    </section>
+
+    <section id="rules" class="rules" aria-labelledby="rules-title">
+      <div class="rules-head"><p class="eyebrow">TRƯỚC KHI LÊN ĐÈN</p><h2 id="rules-title" class="display"><span class="line"><span>Mười giây.</span></span><span class="line"><span><em>Ba cơ hội.</em></span></span></h2></div>
+      <div class="rules-grid"><article><span class="rule-number">01 /</span><h3>Chạm đúng khoảnh khắc</h3><p>Đồng hồ bắt đầu ở 17:59:50.000. Bấm dừng càng gần 18:00:00.000 càng tốt. Bạn có thêm 3 giây sau mốc 18:00; hết thời gian sẽ nhận 0 điểm.</p></article><article><span class="rule-number">02 /</span><h3>Ba lượt, một kết quả tốt nhất</h3><p>Mỗi tài khoản có 3 lượt trong cả đợt game. Lượt được tính khi bấm Bắt đầu; rời trang giữa lượt vẫn mất lượt. Bảng xếp hạng giữ kết quả tốt nhất của bạn.</p></article><article><span class="rule-number">03 /</span><h3>Càng chính xác, càng sáng</h3><p>Đúng tuyệt đối nhận 1.000 điểm. Lệch 50 mili giây: khoảng 819 điểm. Lệch 250 mili giây: khoảng 368 điểm. Tám ô cửa lần lượt sáng lên theo điểm.</p></article><article><span class="rule-number">04 /</span><h3>Chơi công bằng</h3><p>Bản chính thức yêu cầu Google đã xác minh email và lưu lượt trên server. Kết quả bất thường cần ban tổ chức duyệt. Cùng độ lệch, người đạt trước xếp trên.</p></article></div>
+      <div id="rules-notice" hidden><p></p><button type="button"></button></div>
+    </section>
+
+    <!-- 06 · LEADERBOARD -->
+    <section id="leaderboard" class="board" aria-labelledby="board-title">
+      <div class="board-head"><div><p class="eyebrow">BẢNG VINH DANH</p><h2 id="board-title" class="display"><span class="line"><span>Những người</span></span><span class="line"><span><em>thắp sáng.</em></span></span></h2></div><div class="board-tools"><span class="ranking-status" id="ranking-status">Kết quả trên trình duyệt này</span><button class="icon-button" id="refresh-ranking" type="button" aria-label="Làm mới bảng xếp hạng">↻</button></div></div>
+      <div class="table-wrap"><table><caption class="sr-only">Top 20 khoảnh khắc đẹp nhất</caption><thead><tr><th scope="col">HẠNG</th><th scope="col">NGƯỜI CHƠI</th><th scope="col">ĐỘ LỆCH</th><th scope="col">ĐIỂM</th></tr></thead><tbody id="ranking-body"></tbody></table></div>
+      <div id="my-rank" class="my-rank">Chơi một lượt để ghi lại khoảnh khắc của bạn.</div>
+      <div id="mini-ranking" hidden></div>
+    </section>
+
+    <!-- 07 · FINAL CTA -->
+    <section id="finale" class="finale" aria-labelledby="finale-title">
+      <svg class="finale-art" id="finale-art" viewBox="0 0 400 300" aria-hidden="true" focusable="false"><defs><linearGradient id="beam" x2="0" y2="1"><stop stop-color="#CBA66A" stop-opacity=".5"/><stop offset="1" stop-color="#CBA66A" stop-opacity="0"/></linearGradient></defs><path class="beam" d="M170 0H230L330 300H70Z" fill="url(#beam)"/><path id="f-moon" d="M170 90A44 44 0 1 0 170 178A36 36 0 1 1 170 90Z" fill="#CBA66A"/><path id="f-star" d="M232 120L237 136L253 141L237 146L232 162L227 146L211 141L227 136Z" fill="#F4E4C8"/></svg>
+      <h2 id="finale-title" class="display"><span class="line"><span>Một khoảnh khắc.</span></span><span class="line"><span><em>Thắp sáng cả bảo tàng.</em></span></span></h2>
+      <button id="finale-cta" class="btn btn-gold btn-big magnetic" type="button"><span id="finale-cta-label">Chơi ngay</span><span class="btn-arrow" aria-hidden="true">→</span></button>
+    </section>
+  </main>
+  <footer><a class="footer-brand" href="#hero">BẢO TÀNG<i>:</i> ĐÊM</a><span>BẢO TÀNG: ĐÊM là sự kiện thí điểm do nhóm sinh viên thực hiện tại Bảo tàng Đà Nẵng.</span><button class="text-button" id="privacy-button" type="button">Quyền riêng tư</button></footer>
+  </div>
+
+  <section id="admin" class="view admin-view"><div class="board"><div class="board-head"><div><p class="eyebrow">BAN TỔ CHỨC</p><h2 class="display"><span class="line"><span>Quản <em>trị.</em></span></span></h2></div><div class="board-tools"><select id="admin-filter" aria-label="Lọc kết quả"><option value="all">Tất cả lượt</option><option value="suspicious">Cần duyệt</option></select><button id="export-csv" class="text-button" type="button">Xuất CSV</button><button id="close-campaign" class="text-button" type="button">Chốt bảng</button><button class="text-button" data-tab="play" type="button">← Về trang chủ</button></div></div><p id="admin-message"></p><div class="table-wrap"><table><thead><tr><th>NGƯỜI CHƠI / EMAIL</th><th>LƯỢT</th><th>ĐỘ LỆCH</th><th>ĐIỂM</th><th>TRẠNG THÁI</th><th>DUYỆT</th></tr></thead><tbody id="admin-body"></tbody></table></div></div></section>
+
+  <dialog id="login-dialog"><button class="dialog-close" data-close type="button" aria-label="Đóng">×</button><span class="dialog-star">✳︎</span><span class="eyebrow">CHÀO NGƯỜI THẮP SÁNG</span><h2>Một khoảnh khắc.<br><em>Mang tên bạn.</em></h2><p id="login-description">Đăng nhập Google để tham gia bản chính thức và lưu 3 lượt chơi của bạn.</p><label id="consent-label" class="consent"><input id="consent" type="checkbox"><span>Tôi đồng ý dùng tên, email và kết quả cho trò chơi, liên hệ trao giải; dữ liệu được xóa sau chiến dịch. <button class="inline-link" id="login-privacy" type="button">Quyền riêng tư</button></span></label><button class="btn btn-gold google-button" id="google-login" type="button"><span class="google-g">G</span> Đăng nhập bằng Google</button><p class="dialog-note" id="login-note"></p><button class="text-button" id="continue-demo" type="button">Tiếp tục chơi thử →</button><button class="text-button" id="logout" type="button" hidden>Đăng xuất</button></dialog>
+  <dialog id="privacy-dialog"><button class="dialog-close" data-close type="button" aria-label="Đóng">×</button><span class="eyebrow">DỮ LIỆU CỦA BẠN</span><h2>Quyền riêng tư</h2><p>Bản chơi thử chỉ lưu lượt và điểm trong trình duyệt của bạn. Không thu thập email và không gửi kết quả lên server.</p><p>Khi bản chính thức được kích hoạt, trò chơi dùng tên, ảnh đại diện, email đã xác minh và mã Google để xác định tài khoản, giới hạn lượt và liên hệ trao giải. Không yêu cầu quyền đọc Gmail hoặc Drive. Bảng xếp hạng chỉ hiển thị tên rút gọn.</p><p>Trước khi mở chiến dịch, ban tổ chức cần công bố thông tin liên hệ, thời gian lưu và ngày xóa dữ liệu cụ thể. Hiện chưa mở chiến dịch trao giải.</p></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <div id="cursor" class="cursor" aria-hidden="true"><i></i></div>
+</body></html>
